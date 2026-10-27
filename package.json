@@ -1,0 +1,63 @@
+{
+	"name": "n8n-nodes-prisma-reviews",
+	"version": "0.1.0",
+	"description": "n8n nodes for the Prisma Reviews API: read and reply to reviews from the App Store, Google Play, Yelp, Tripadvisor and more, and trigger workflows on review webhooks.",
+	"license": "MIT",
+	"homepage": "https://prismareviews.com",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"prisma-reviews",
+		"reviews",
+		"review-management",
+		"google-business-profile",
+		"app-store",
+		"google-play",
+		"trustpilot",
+		"yelp"
+	],
+	"author": {
+		"name": "Sopa Lab SL",
+		"email": "hello@prismareviews.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Fran-Sopa/n8n-nodes-prisma-reviews.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Fran-Sopa/n8n-nodes-prisma-reviews/issues"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/PrismaReviewsApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/PrismaReviews/PrismaReviews.node.js",
+			"dist/nodes/PrismaReviewsTrigger/PrismaReviewsTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "^0.54.3",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
