@@ -113,3 +113,5 @@ Built with `@n8n/node-cli` 0.54 against `n8n-workflow` 2.x (n8n nodes API versio
 - [API reference](https://prismareviews.com/docs/api-reference)
 - [Webhooks](https://prismareviews.com/docs/api-reference/webhooks)
 - [OpenAPI specification](https://prismareviews.com/openapi.json)
+- [Review webhooks](https://prismareviews.com/review-webhooks): how to get notified of new reviews
+- [Which review platforms have an API?](https://prismareviews.com/which-review-platforms-have-an-api): all 32 platforms, read, reply and how each connects
