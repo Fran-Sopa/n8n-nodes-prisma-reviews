@@ -78,6 +78,7 @@ Notes:
 | `review.updated` | A review's content changed on the platform, or a reply appeared or changed there. |
 | `reply.published` | A reply sent through Prisma is live on the platform. |
 | `reply.failed` | The platform refused a reply, or every retry failed. |
+| `reply.unknown` | A reply was sent but the platform never answered and it can't be read back, so Prisma stopped without retrying. Check the review on the platform. |
 | `connection.updated` | An OAuth connection became active, or a connection needs to be re-authorized. |
 
 When you activate the workflow (or listen for a test event), the node registers a webhook endpoint with `POST /v1/webhooks` for the events you chose and keeps its signing secret. When you deactivate the workflow, it deletes the endpoint.

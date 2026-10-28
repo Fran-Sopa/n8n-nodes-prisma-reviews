@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-prisma-reviews",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "n8n nodes for the Prisma Reviews API: read and reply to reviews from the App Store, Google Play, Yelp, Tripadvisor and more, and trigger workflows on review webhooks.",
 	"license": "MIT",
 	"homepage": "https://prismareviews.com",

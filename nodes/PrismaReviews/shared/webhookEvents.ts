@@ -17,6 +17,11 @@ export const webhookEventOptions: INodePropertyOptions[] = [
 		description: 'A reply sent through Prisma is live on the platform',
 	},
 	{
+		name: 'Reply Unknown',
+		value: 'reply.unknown',
+		description: 'A reply was sent but the platform never answered and it cannot be read back, so Prisma stopped without retrying: check the review on the platform',
+	},
+	{
 		name: 'Review Created',
 		value: 'review.created',
 		description: 'A new review was found on a connected location',
