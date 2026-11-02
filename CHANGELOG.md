@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Trigger: new `location.sync_failed` and `location.sync_recovered` events, to tell a location whose checks keep failing apart from one with no new reviews (requested on the n8n community forum).
+
 ## 0.1.2
 
 - Trigger: new `reply.unknown` event (a reply was sent but the platform never answered and it can't be read back; Prisma stops without retrying).

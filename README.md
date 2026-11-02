@@ -80,6 +80,8 @@ Notes:
 | `reply.failed` | The platform refused a reply, or every retry failed. |
 | `reply.unknown` | A reply was sent but the platform never answered and it can't be read back, so Prisma stopped without retrying. Check the review on the platform. |
 | `connection.updated` | An OAuth connection became active, or a connection needs to be re-authorized. |
+| `location.sync_failed` | A location's checks failed 3 times in a row (sent once per streak; Prisma keeps retrying). Tells a broken sync apart from a quiet location. A connection that needs signing in again sends `connection.updated` instead. |
+| `location.sync_recovered` | A location that sent `location.sync_failed` was checked successfully again. |
 
 When you activate the workflow (or listen for a test event), the node registers a webhook endpoint with `POST /v1/webhooks` for the events you chose and keeps its signing secret. When you deactivate the workflow, it deletes the endpoint.
 

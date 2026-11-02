@@ -7,6 +7,16 @@ export const webhookEventOptions: INodePropertyOptions[] = [
 		description: 'An OAuth connection became active, or a connection needs to be re-authorized',
 	},
 	{
+		name: 'Location Sync Failed',
+		value: 'location.sync_failed',
+		description: "A location's checks failed 3 times in a row (sent once per streak; Prisma keeps retrying), so a broken sync is not mistaken for a quiet location",
+	},
+	{
+		name: 'Location Sync Recovered',
+		value: 'location.sync_recovered',
+		description: 'A location that sent Location Sync Failed was checked successfully again',
+	},
+	{
 		name: 'Reply Failed',
 		value: 'reply.failed',
 		description: 'The platform refused a reply, or every retry failed',
