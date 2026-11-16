@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Review → Get Many: new filters Search Text (`q`: whole words, any case or accent, commas for OR, e.g. `John,Mary Ann`), Search In, Min Stars, Max Stars and Until; Location IDs takes several ids separated by commas. Results carry `location_name`, `location_url` and, with Search Text, `matched_terms`.
+
 ## 0.1.3
 
 - Trigger: new `location.sync_failed` and `location.sync_recovered` events, to tell a location whose checks keep failing apart from one with no new reviews (requested on the n8n community forum).

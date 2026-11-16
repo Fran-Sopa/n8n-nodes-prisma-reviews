@@ -4,6 +4,8 @@ import { platformOptions, unwrapData } from '../shared/descriptions';
 const showForReview = { resource: ['review'] };
 const showForGetMany = { resource: ['review'], operation: ['getAll'] };
 
+const stars = [1, 2, 3, 4, 5].map((n) => ({ name: String(n), value: n }));
+
 export const reviewDescription: INodeProperties[] = [
 	{
 		displayName: 'Operation',
@@ -121,13 +123,31 @@ export const reviewDescription: INodeProperties[] = [
 				routing: { send: { type: 'query', property: 'has_reply' } },
 			},
 			{
-				displayName: 'Location ID',
+				displayName: 'Location IDs',
 				name: 'location_id',
 				type: 'string',
 				default: '',
 				placeholder: 'loc_01KJ8P9W2C4D6F8G0H2J4K6M8N',
-				description: 'Only reviews of this location (loc_…)',
+				description: 'Only reviews of this location (loc_…), or of several separated by commas (up to 500)',
 				routing: { send: { type: 'query', property: 'location_id' } },
+			},
+			{
+				displayName: 'Max Stars',
+				name: 'max_rating',
+				type: 'options',
+				options: stars,
+				default: 5,
+				description: 'Only reviews with at most this many stars (reviews with no rating are left out)',
+				routing: { send: { type: 'query', property: 'max_rating' } },
+			},
+			{
+				displayName: 'Min Stars',
+				name: 'min_rating',
+				type: 'options',
+				options: stars,
+				default: 4,
+				description: 'Only reviews with at least this many stars (reviews with no rating are left out)',
+				routing: { send: { type: 'query', property: 'min_rating' } },
 			},
 			{
 				displayName: 'Platform',
@@ -139,6 +159,29 @@ export const reviewDescription: INodeProperties[] = [
 				routing: { send: { type: 'query', property: 'platform' } },
 			},
 			{
+				displayName: 'Search In',
+				name: 'q_in',
+				type: 'options',
+				options: [
+					{ name: 'Text and Title', value: 'text,title' },
+					{ name: 'Text, Title and Author', value: 'text,title,author' },
+					{ name: 'Author Only', value: 'author' },
+				],
+				default: 'text,title',
+				description: 'Where Search Text looks. By default the text and title: a reviewer named John is not a mention of John.',
+				routing: { send: { type: 'query', property: 'q_in' } },
+			},
+			{
+				displayName: 'Search Text',
+				name: 'q',
+				type: 'string',
+				default: '',
+				placeholder: 'John,Johnny',
+				description:
+					'Whole words in the review text and title, ignoring case and accents. Separate names with commas to match any of them; a name with a space is a phrase (Mary Ann). Each result lists the ones it matched in matched_terms.',
+				routing: { send: { type: 'query', property: 'q' } },
+			},
+			{
 				displayName: 'Since',
 				name: 'since',
 				type: 'dateTime',
@@ -148,6 +191,20 @@ export const reviewDescription: INodeProperties[] = [
 					send: {
 						type: 'query',
 						property: 'since',
+						value: '={{ new Date($value).toISOString() }}',
+					},
+				},
+			},
+			{
+				displayName: 'Until',
+				name: 'until',
+				type: 'dateTime',
+				default: '',
+				description: 'Only reviews written at or before this time',
+				routing: {
+					send: {
+						type: 'query',
+						property: 'until',
 						value: '={{ new Date($value).toISOString() }}',
 					},
 				},
