@@ -2,7 +2,8 @@
 
 ## 0.1.4
 
-- Review → Get Many: new filters Search Text (`q`: whole words, any case or accent, commas for OR, e.g. `John,Mary Ann`), Search In, Min Stars, Max Stars and Until; Location IDs takes several ids separated by commas. Results carry `location_name`, `location_url` and, with Search Text, `matched_terms`.
+- Review → Get Many: new filters Search Text (`q`: whole words, any case or accent, commas for OR, e.g. `John,Mary Ann`), Search In, Min Stars, Max Stars and Until; Location IDs takes several ids separated by commas. Results carry `location_name`, `location_url`, `location_timezone`, `created_at_local` and, with Search Text, `matched_terms`.
+- Location → Get Many: new Reference filter (your own ID for each office, commas for several).
 
 ## 0.1.3
 

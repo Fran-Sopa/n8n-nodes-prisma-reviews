@@ -63,4 +63,24 @@ export const locationDescription: INodeProperties[] = [
 		description: 'The location ID (loc_…)',
 		displayOptions: { show: { resource: ['location'], operation: ['get', 'refresh'] } },
 	},
+	{
+		displayName: 'Filters',
+		name: 'filters',
+		type: 'collection',
+		placeholder: 'Add Filter',
+		default: {},
+		displayOptions: { show: { resource: ['location'], operation: ['getAll'] } },
+		options: [
+			{
+				displayName: 'Reference',
+				name: 'reference',
+				type: 'string',
+				default: '',
+				placeholder: 'OFFICE-014,OFFICE-020',
+				description:
+					'Only locations with one of these references (your own ID for each office), separated by commas',
+				routing: { send: { type: 'query', property: 'reference' } },
+			},
+		],
+	},
 ];
